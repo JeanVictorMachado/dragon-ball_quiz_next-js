@@ -1,9 +1,9 @@
 import * as S from './styles'
 
-const Test = () => (
+const Input = () => (
   <S.Wrapper>
-    <h1>Test</h1>
+    <h1>Input</h1>
   </S.Wrapper>
 )
 
-export default Test
+export default Input
