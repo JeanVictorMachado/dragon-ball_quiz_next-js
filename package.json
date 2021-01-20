@@ -12,6 +12,17 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
+  },
   "dependencies": {
     "next": "10.0.5",
     "next-pwa": "^5.0.4",
