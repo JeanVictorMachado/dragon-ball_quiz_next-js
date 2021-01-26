@@ -18,6 +18,10 @@ export const ConatinerLeft = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1100px) {
+    margin-left: 0;
+  }
 `
 
 export const ConatinerRight = styled.main`
@@ -26,6 +30,10 @@ export const ConatinerRight = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `
 
 export const ImgDragonBall = styled.img`
