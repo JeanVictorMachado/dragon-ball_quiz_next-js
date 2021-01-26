@@ -11,7 +11,6 @@ export const ContainerMain = styled.main`
 `
 
 export const ConatinerLeft = styled.main`
-  height: 100vh;
   margin-left: 11%;
 
   display: flex;
@@ -25,8 +24,6 @@ export const ConatinerLeft = styled.main`
 `
 
 export const ConatinerRight = styled.main`
-  height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;

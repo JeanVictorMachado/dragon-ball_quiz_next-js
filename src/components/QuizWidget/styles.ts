@@ -11,6 +11,14 @@ export const Container = styled.section`
   box-shadow: 0 0 10px black;
 
   background-color: '';
+
+  @media (max-width: 400px) {
+    width: 340px;
+  }
+
+  @media (max-width: 300px) {
+    width: 270px;
+  }
 `
 
 export const Content = styled.section`
@@ -28,5 +36,13 @@ export const Content = styled.section`
     font-size: 16px;
     opacity: 0.8;
     margin-bottom: 10px;
+  }
+
+  @media (max-width: 300px) {
+    width: 270px;
+
+    > h2 {
+      font-size: 14px;
+    }
   }
 `

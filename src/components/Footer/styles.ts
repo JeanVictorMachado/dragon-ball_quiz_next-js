@@ -30,4 +30,12 @@ export const FooterWrapper = styled.footer`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 400px) {
+    width: 340px;
+  }
+
+  @media (max-width: 350px) {
+    width: 270px;
+  }
 `
