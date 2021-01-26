@@ -9,6 +9,21 @@ export const Container = styled.section`
 
   border-radius: 10px;
   box-shadow: 0 0 10px black;
+
+  @media (max-width: 1100px) {
+  }
+
+  @media (max-width: 450px) {
+    width: 370px;
+  }
+
+  @media (max-width: 400px) {
+    width: 340px;
+  }
+
+  @media (max-width: 300px) {
+    width: 270px;
+  }
 `
 
 export const Content = styled.section`
