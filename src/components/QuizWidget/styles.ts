@@ -12,6 +12,10 @@ export const Container = styled.section`
 
   background-color: '';
 
+  @media (max-width: 450px) {
+    width: 370px;
+  }
+
   @media (max-width: 400px) {
     width: 340px;
   }

@@ -31,11 +31,16 @@ export const FooterWrapper = styled.footer`
     }
   }
 
+  @media (max-width: 450px) {
+    width: 370px;
+    margin-bottom: 10px;
+  }
+
   @media (max-width: 400px) {
     width: 340px;
   }
 
-  @media (max-width: 350px) {
+  @media (max-width: 300px) {
     width: 270px;
   }
 `
