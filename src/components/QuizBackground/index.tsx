@@ -1,36 +1,56 @@
+import { useEffect, useState } from 'react'
+import Router from 'next/router'
+
 import * as S from './styles'
 
 import Logo from 'components/QuizLogo'
 import Widget from 'components/QuizWidget'
 import Footer from 'components/Footer'
+import QuestionsWidget from 'components/QuestionsWidget'
 
-const QuizBackground = () => (
-  <S.ContainerMain>
-    {/* <S.BackgroundMobile /> */}
-    <S.ConatinerLeft>
-      <Logo />
-      <Widget
-        header={true}
-        input={true}
-        trueOrFalse={true}
-        buttonLink={false}
-      />
-      <Widget
-        header={false}
-        input={false}
-        trueOrFalse={false}
-        buttonLink={true}
-      />
-      <Footer />
-    </S.ConatinerLeft>
+const QuizBackground = () => {
+  const [stateRoute, setRoute] = useState<string>()
 
-    <S.ConatinerRight>
-      <S.ImgDragonBall
-        src="/img/background-quiz-dragon-ball.png"
-        alt="Imagem Dragom Ball"
-      />
-    </S.ConatinerRight>
-  </S.ContainerMain>
-)
+  useEffect(() => {
+    const { pathname } = Router
+
+    setRoute(pathname)
+  }, [stateRoute])
+
+  return (
+    <S.ContainerMain>
+      {/* {console.log(currentRoute)} */}
+      <S.ConatinerLeft>
+        <Logo />
+        {stateRoute === '/quiz' ? (
+          <QuestionsWidget header={true} currentRoute={stateRoute} />
+        ) : (
+          <>
+            <Widget
+              header={true}
+              input={true}
+              trueOrFalse={true}
+              buttonLink={false}
+            />
+            <Widget
+              header={false}
+              input={false}
+              trueOrFalse={false}
+              buttonLink={true}
+            />
+          </>
+        )}
+        <Footer />
+      </S.ConatinerLeft>
+
+      <S.ConatinerRight>
+        <S.ImgDragonBall
+          src="/img/background-quiz-dragon-ball.png"
+          alt="Imagem Dragom Ball"
+        />
+      </S.ConatinerRight>
+    </S.ContainerMain>
+  )
+}
 
 export default QuizBackground

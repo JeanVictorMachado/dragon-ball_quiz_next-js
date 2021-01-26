@@ -11,6 +11,8 @@ export type ButtonWidgetProps = {
 
 export type HeaderWidgetProps = {
   header: boolean
+  label: string
+  currentRoute: string
 }
 
 export type InputWidgetProps = {
@@ -23,4 +25,21 @@ export type WidgetProps = {
   input: boolean
   trueOrFalse: boolean
   buttonLink: boolean
+}
+
+export type UrlImageProps = {
+  urlImage: string
+}
+
+export type WrapperHeader = {
+  currentRoute: string
+}
+
+export type QuestionsWidgetProps = {
+  header: boolean
+  currentRoute: string
+}
+
+export type InputQuestionsProps = {
+  value: string
 }

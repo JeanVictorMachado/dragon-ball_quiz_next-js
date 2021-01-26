@@ -1,7 +1,9 @@
+import QuizBackground from 'components/QuizBackground'
+
 const Quiz = () => {
   return (
     <>
-      <h1>Página de quiz!!!</h1>
+      <QuizBackground />
     </>
   )
 }

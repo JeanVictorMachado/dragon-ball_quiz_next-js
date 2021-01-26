@@ -2,12 +2,12 @@ import * as S from './styles'
 
 import { HeaderWidgetProps } from 'types/types'
 
-const HeaderWidget = ({ header }: HeaderWidgetProps) => {
+const HeaderWidget = ({ header, label, currentRoute }: HeaderWidgetProps) => {
   return (
     <>
       {header ? (
-        <S.Wrapper>
-          <h3>Quiz - Dragon Ball Super</h3>
+        <S.Wrapper currentRoute={currentRoute}>
+          <h3>{label}</h3>
         </S.Wrapper>
       ) : (
         ''

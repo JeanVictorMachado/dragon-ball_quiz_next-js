@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 import themeOne from 'styles/Themes/themeOne'
 
-export const Wrapper = styled.header`
+import { WrapperHeader } from 'types/types'
+
+export const Wrapper = styled.header<WrapperHeader>`
   height: 50px;
   width: 100%;
   border-radius: 10px 10px 0 0;
-  margin-bottom: 20px;
+  margin-bottom: ${(props) => (props.currentRoute ? '0' : '20px')};
   background-color: ${themeOne.colors.tertiary};
   font-size: 20px;
   color: white;

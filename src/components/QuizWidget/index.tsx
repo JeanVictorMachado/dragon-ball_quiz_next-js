@@ -22,7 +22,11 @@ const Widget = ({ header, input, trueOrFalse, buttonLink }: WidgetProps) => {
 
   return (
     <S.Container>
-      <HeaderWidget header={header} />
+      <HeaderWidget
+        currentRoute=""
+        header={header}
+        label="Quiz - Dragon Ball Super"
+      />
       <S.Content>
         {header ? (
           <p>
