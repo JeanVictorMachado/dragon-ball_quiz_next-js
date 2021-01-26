@@ -1,4 +1,4 @@
-import Home from './Home'
+import Home from './home'
 
 export default function Index() {
   return <Home />

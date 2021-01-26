@@ -50,3 +50,5 @@ export const Content = styled.section`
     }
   }
 `
+
+export const Form = styled.form``

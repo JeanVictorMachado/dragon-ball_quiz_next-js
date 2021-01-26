@@ -15,6 +15,12 @@ export const ContainerMain = styled.main`
 
   display: flex;
   justify-content: space-around;
+
+  @media (max-width: 1100px) {
+    /* background-image: url('/img/imagem-dragon-ball-fundo-mobile.jpg');
+    background-size: cover; */
+    flex-direction: column;
+  }
 `
 
 export const ConatinerLeft = styled.main`
@@ -42,4 +48,16 @@ export const ConatinerRight = styled.main`
 
 export const ImgDragonBall = styled.img`
   height: 80vh;
+`
+
+export const BackgroundMobile = styled.div`
+  height: 200px;
+  width: 100%;
+  position: relative;
+  background-image: url('/img/imagem-dragon-ball-fundo-mobile.jpg');
+  background-size: cover;
+
+  @media (min-width: 1100px) {
+    display: none;
+  }
 `

@@ -5,6 +5,7 @@ export type ButtonLinkProps = {
 
 export type ButtonWidgetProps = {
   trueOrFalse: boolean
+  disabled: string
   value: string
 }
 
@@ -14,6 +15,7 @@ export type HeaderWidgetProps = {
 
 export type InputWidgetProps = {
   display: boolean
+  onChange: string
 }
 
 export type WidgetProps = {
