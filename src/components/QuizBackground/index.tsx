@@ -6,7 +6,7 @@ import Footer from 'components/Footer'
 
 const QuizBackground = () => (
   <S.ContainerMain>
-    <S.BackgroundMobile />
+    {/* <S.BackgroundMobile /> */}
     <S.ConatinerLeft>
       <Logo />
       <Widget

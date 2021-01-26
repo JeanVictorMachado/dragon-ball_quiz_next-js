@@ -4,7 +4,7 @@ import themeOne from 'styles/Themes/themeOne'
 
 export const ContainerMain = styled.main`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-image: linear-gradient(
     ${themeOne.colors.primary},
     ${themeOne.colors.secondary},
@@ -17,8 +17,16 @@ export const ContainerMain = styled.main`
   justify-content: space-around;
 
   @media (max-width: 1100px) {
-    /* background-image: url('/img/imagem-dragon-ball-fundo-mobile.jpg');
-    background-size: cover; */
+    padding-top: 100px;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        ${themeOne.colors.secondary} 21%,
+        ${themeOne.colors.secondary} 55%,
+        ${themeOne.colors.tertiary} 80%
+      ),
+      url(/img/dragon-ball-super-FB-test.jpg);
+    background-size: cover;
     flex-direction: column;
   }
 `
@@ -50,14 +58,14 @@ export const ImgDragonBall = styled.img`
   height: 80vh;
 `
 
-export const BackgroundMobile = styled.div`
-  height: 200px;
-  width: 100%;
-  position: relative;
-  background-image: url('/img/imagem-dragon-ball-fundo-mobile.jpg');
-  background-size: cover;
+// export const BackgroundMobile = styled.div`
+//   height: 200px;
+//   width: 100%;
+//   position: relative;
+//   background-image: url('/img/imagem-dragon-ball-fundo-mobile.jpg');
+//   background-size: cover;
 
-  @media (min-width: 1100px) {
-    display: none;
-  }
-`
+//   @media (min-width: 1100px) {
+//     display: none;
+//   }
+// `

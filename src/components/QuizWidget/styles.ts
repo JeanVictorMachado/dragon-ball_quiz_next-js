@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import themeOne from 'styles/Themes/themeOne'
+
 export const Container = styled.section`
   width: 400px;
   height: 250px;
@@ -10,7 +12,8 @@ export const Container = styled.section`
   border-radius: 10px;
   box-shadow: 0 0 10px black;
 
-  background-color: '';
+  @media (max-width: 1100px) {
+  }
 
   @media (max-width: 450px) {
     width: 370px;
