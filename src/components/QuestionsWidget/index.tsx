@@ -24,7 +24,7 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => (
       <InputQuestions value="2009" />
       <InputQuestions value="2010" />
       <InputQuestions value="2012" />
-      <ButtonWidget value="CONFIRMAR" trueOrFalse={true} disabled={false} />
+      <ButtonWidget value="CONFIRMAR" trueOrFalse={true} disabled="false" />
     </S.Content>
   </S.Container>
 )
