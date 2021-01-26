@@ -1,9 +1,16 @@
 import styled from 'styled-components'
 
+import themeOne from 'styles/Themes/themeOne'
+
 export const ContainerMain = styled.main`
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(#1874cd, #104e8b, red);
+  background-image: linear-gradient(
+    ${themeOne.colors.primary},
+    ${themeOne.colors.secondary},
+    ${themeOne.colors.tertiary}
+  );
+
   padding-bottom: 30px;
 
   display: flex;
