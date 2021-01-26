@@ -15,7 +15,7 @@ export type HeaderWidgetProps = {
 
 export type InputWidgetProps = {
   display: boolean
-  onChange: string
+  onChange: React.Dispatch<React.SetStateAction<string>>
 }
 
 export type WidgetProps = {
