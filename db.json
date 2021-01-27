@@ -4,27 +4,39 @@
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "questions": [
     {
-      "image": "/img/imagem-dragon-ball-fundo-mobile.jpg",
-      "title": "Tema geral",
-      "description": "Em que ano foi lançado o primeiro episódio de Dragon Ball Super?",
-      "answer": 1,
+      "image": "/img/gif-1-dragon-ball.gif",
+      "title": "Sobre Guku",
+      "description": "Qual A Primeira Transformação Que Goku Obtem No Dragon Ball Super?",
+      "answer": 3,
       "alternatives": [
-        "2005",
-        "2009",
-        "2010",
-        "2012"
+        "Super Sayajin",
+        "Super Sayajin 3",
+        "Super Sayajin Deus",
+        "Ozaru"
       ]
     },
     {
-      "image": "/img/logo-dragon-ball-super.png",
-      "title": "Sobre Goku",
-      "description": "Qual o verdadeiro nome de Goku?",
+      "image": "/img/gif-2-dragon-ball.gif",
+      "title": "Tema geral",
+      "description": "Quem No Começo Do Dragon Ball Super Luta Intensamente Contra Goku?",
       "answer": 2,
       "alternatives": [
-        "José",
-        "Pedro",
-        "Kakarotto",
-        "Son Goku"
+        "Kuririn",
+        "Bills",
+        "Vegeta",
+        "Majin Buu"
+      ]
+    },
+    {
+      "image": "/img/gif-5-dragon-ball.gif",
+      "title": "Tema geral",
+      "description": "Que Transformação é Essa?",
+      "answer": 2,
+      "alternatives": [
+        "Super Sayajin 4 (Ou Ssj 4)",
+        "Super Sayajin Deus (Ou Ssj Blue)",
+        "Super Sayajin Rosé (Ou Ssj Rosé)",
+        "Super Sayajin Água"
       ]
     }
   ],
