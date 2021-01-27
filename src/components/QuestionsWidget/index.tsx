@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Router from 'next/router'
 
 import * as S from './styles'
 
@@ -16,7 +17,11 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
   const handleSubmit = (eventReload: React.FormEvent<HTMLFormElement>) => {
     eventReload.preventDefault()
 
-    setIndexQuestion(indexQuestion + 1)
+    if (indexQuestion >= db.questions.length - 1) {
+      Router.push('/results')
+    } else {
+      setIndexQuestion(indexQuestion + 1)
+    }
   }
 
   return (
