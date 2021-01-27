@@ -1,7 +1,11 @@
 import * as S from './styles'
 
-const ImgQuestions = () => (
-  <S.ContainerImg urlImage="/img/imagem-dragon-ball-fundo-mobile.jpg" />
+type ImgQuestionsProps = {
+  urlImage: string
+}
+
+const ImgQuestions = ({ urlImage }: ImgQuestionsProps) => (
+  <S.ContainerImg urlImage={urlImage} />
 )
 
 export default ImgQuestions

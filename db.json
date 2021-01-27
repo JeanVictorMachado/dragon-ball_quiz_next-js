@@ -1,13 +1,34 @@
 {
-  "theme": {
-    "colors": {
-      "primary": "#1874cd",
-      "secondary": "#104e8b",
-      "tertiary": "red",
-      "playButton": "#ffd700",
-      "contrastText": "#FFFFFF",
-      "wrong": "#FF5722",
-      "success": "#4CAF50"
+  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
+  "title": "Quiz CSS da Alura",
+  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "questions": [
+    {
+      "image": "/img/imagem-dragon-ball-fundo-mobile.jpg",
+      "title": "Tema geral",
+      "description": "Em que ano foi lançado o primeiro episódio de Dragon Ball Super?",
+      "answer": 1,
+      "alternatives": [
+        "2005",
+        "2009",
+        "2010",
+        "2012"
+      ]
+    },
+    {
+      "image": "/img/logo-dragon-ball-super.png",
+      "title": "Sobre Goku",
+      "description": "Qual o verdadeiro nome de Goku?",
+      "answer": 2,
+      "alternatives": [
+        "José",
+        "Pedro",
+        "Kakarotto",
+        "Son Goku"
+      ]
     }
-  }
+  ],
+  "external": [
+    ""
+  ]
 }
