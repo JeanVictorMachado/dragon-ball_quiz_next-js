@@ -35,7 +35,7 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
     setClassNameButtonAnswer(null)
   }, [indexQuestion])
 
-  const handlEanswer = (indexQueston, alternative) => {
+  const handlEanswer = (indexQueston: number, alternative: string) => {
     const indexAnswer = db.questions[indexQuestion].answer
 
     setNameAlternative(alternative)
@@ -49,7 +49,7 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
 
   return (
     <S.Container>
-      {console.log(nameAlternative)}
+      {/* {console.log(nameAlternative)} */}
       <HeaderWidget
         header={header}
         label={`<  Pergunta 1 de 5`}
