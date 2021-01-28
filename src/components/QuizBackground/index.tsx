@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import Router from 'next/router'
 
 import * as S from './styles'
@@ -8,6 +8,7 @@ import Widget from 'components/QuizWidget'
 import Footer from 'components/Footer'
 import QuestionsWidget from 'components/QuestionsWidget'
 import Loading from 'components/Loading'
+import ResultsWidget from 'components/ResultsWidget'
 
 const QuizBackground = () => {
   const [stateRoute, setRoute] = useState<string>()
@@ -27,33 +28,41 @@ const QuizBackground = () => {
     }
   }, [stateRoute])
 
+  const currentWidget = useMemo(() => {
+    if (stateRoute === '/quiz') {
+      return <QuestionsWidget header={true} currentRoute={stateRoute} />
+    } else if (stateRoute === '/results') {
+      return <ResultsWidget />
+    } else {
+      return (
+        <>
+          <Widget
+            header={true}
+            input={true}
+            trueOrFalse={true}
+            buttonLink={false}
+          />
+          <Widget
+            header={false}
+            input={false}
+            trueOrFalse={false}
+            buttonLink={true}
+          />
+        </>
+      )
+    }
+  }, [stateRoute])
+
   return (
     <>
+      {/* {console.log(stateNumberResponseCorrect)} */}
       {stateIsLoading ? (
         <Loading />
       ) : (
         <S.ContainerMain>
-          {console.log(stateIsLoading)}
           <S.ConatinerLeft>
             <Logo />
-            {stateRoute === '/quiz' ? (
-              <QuestionsWidget header={true} currentRoute={stateRoute} />
-            ) : (
-              <>
-                <Widget
-                  header={true}
-                  input={true}
-                  trueOrFalse={true}
-                  buttonLink={false}
-                />
-                <Widget
-                  header={false}
-                  input={false}
-                  trueOrFalse={false}
-                  buttonLink={true}
-                />
-              </>
-            )}
+            {currentWidget}
             <Footer />
           </S.ConatinerLeft>
 

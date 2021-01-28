@@ -4,7 +4,12 @@ import * as S from './styles'
 
 import { ButtonWidgetProps } from 'types/types'
 
-const ButtonWidget = ({ trueOrFalse, value, disabled }: ButtonWidgetProps) => {
+const ButtonWidget = ({
+  trueOrFalse,
+  value,
+  disabled,
+  onClick
+}: ButtonWidgetProps) => {
   const buttonTrueOrFalse = useMemo(() => {
     if (disabled.length < 2) {
       return true
@@ -21,6 +26,7 @@ const ButtonWidget = ({ trueOrFalse, value, disabled }: ButtonWidgetProps) => {
             type="submit"
             value={value}
             disabled={buttonTrueOrFalse}
+            onClick={onClick}
           ></S.Wrapper>
         ) : (
           <S.ButtonDisabled

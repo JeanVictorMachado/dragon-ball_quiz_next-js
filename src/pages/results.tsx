@@ -1,9 +1,11 @@
-// import QuizBackground from 'components/QuizBackground'
+import Provider from 'Context/Provider'
+
+import QuizBackground from 'components/QuizBackground'
 
 const Results = () => {
   return (
     <>
-      <h1>Página de resltados</h1>
+      <QuizBackground />
     </>
   )
 }

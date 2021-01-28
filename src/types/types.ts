@@ -7,6 +7,7 @@ export type ButtonWidgetProps = {
   trueOrFalse: boolean
   disabled: string
   value: string
+  onClick: any
 }
 
 export type HeaderWidgetProps = {

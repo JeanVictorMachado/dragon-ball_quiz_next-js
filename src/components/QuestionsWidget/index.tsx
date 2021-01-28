@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Router from 'next/router'
 
 import * as S from './styles'
 
+import ContextAPI from '../../Context/ContextAPI'
 import HeaderWidget from 'components/HeaderWidget'
 import ImgQuestions from 'components/ImgQuestions'
 import InputQuestions from 'components/InputQuestions'
@@ -16,11 +17,20 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
   const [colorButtonAnswer, setColorButtonAnswer] = useState('')
   const [classNameButtonAnswer, setClassNameButtonAnswer] = useState<unknown>()
   const [nameAlternative, setNameAlternative] = useState<string>()
+  const [currentIndexQuestion, setCurrentIndexQuestion] = useState<number>()
+
+  const { globalAnswerCorrect, setglobalAnswerCorrect } = useContext(ContextAPI)
 
   const handleSubmit = (eventReload: React.FormEvent<HTMLFormElement>) => {
     eventReload.preventDefault()
 
     setClassNameButtonAnswer(colorButtonAnswer)
+
+    const indexAnswer = db.questions[indexQuestion].answer
+
+    if (indexAnswer === currentIndexQuestion) {
+      setglobalAnswerCorrect([...globalAnswerCorrect, true])
+    }
 
     setTimeout(() => {
       if (indexQuestion >= db.questions.length - 1) {
@@ -33,11 +43,13 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
 
   useEffect(() => {
     setClassNameButtonAnswer(null)
+    // setglobalAnswerCorrect(numberResponseCorrect)
   }, [indexQuestion])
 
   const handlEanswer = (indexQueston: number, alternative: string) => {
     const indexAnswer = db.questions[indexQuestion].answer
 
+    setCurrentIndexQuestion(indexQueston)
     setNameAlternative(alternative)
 
     if (indexAnswer === indexQueston) {
@@ -49,7 +61,6 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
 
   return (
     <S.Container>
-      {/* {console.log(nameAlternative)} */}
       <HeaderWidget
         header={header}
         label={`<  Pergunta 1 de 5`}
@@ -64,7 +75,7 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
           </>
           {db.questions[indexQuestion].alternatives.map(
             (alternative, index) => (
-              <>
+              <div key={index}>
                 {classNameButtonAnswer ? (
                   <InputQuestions
                     borderColor={
@@ -82,10 +93,15 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
                     handlEanswer={() => handlEanswer(index + 1, alternative)}
                   />
                 )}
-              </>
+              </div>
             )
           )}
-          <ButtonWidget value="CONFIRMAR" trueOrFalse={true} disabled="false" />
+          <ButtonWidget
+            value="CONFIRMAR"
+            trueOrFalse={true}
+            disabled="false"
+            onClick=""
+          />
         </S.Content>
       </S.Form>
     </S.Container>
