@@ -2,7 +2,12 @@ import styled from 'styled-components'
 
 import themeOne from 'styles/Themes/themeOne'
 
-export const Wrapper = styled.input`
+type IWrapperProps = {
+  borderColor: any
+  onClick: any
+}
+
+export const Wrapper = styled.input<IWrapperProps>`
   width: 100%;
   height: 35px;
   margin-top: 10px;
@@ -13,6 +18,8 @@ export const Wrapper = styled.input`
   font-size: 14px;
   color: white;
 
+  border: 2px solid ${(props) => props.borderColor};
+
   cursor: pointer;
   opacity: 1;
 
@@ -20,4 +27,12 @@ export const Wrapper = styled.input`
     transition: 0.5s;
     opacity: 0.7;
   }
+`
+
+export const QuestionCorrect = styled.input`
+  border: 2px solid green;
+`
+
+export const QuestionIncorrect = styled.input`
+  border: 2px solid red;
 `

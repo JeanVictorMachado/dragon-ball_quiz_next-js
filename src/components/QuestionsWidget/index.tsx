@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Router from 'next/router'
 
 import * as S from './styles'
@@ -13,20 +13,43 @@ import { QuestionsWidgetProps } from 'types/types'
 
 const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
   const [indexQuestion, setIndexQuestion] = useState(0)
+  const [colorButtonAnswer, setColorButtonAnswer] = useState('')
+  const [classNameButtonAnswer, setClassNameButtonAnswer] = useState<unknown>()
+  const [nameAlternative, setNameAlternative] = useState<string>()
 
   const handleSubmit = (eventReload: React.FormEvent<HTMLFormElement>) => {
     eventReload.preventDefault()
 
-    if (indexQuestion >= db.questions.length - 1) {
-      Router.push('/results')
+    setClassNameButtonAnswer(colorButtonAnswer)
+
+    setTimeout(() => {
+      if (indexQuestion >= db.questions.length - 1) {
+        Router.push('/results')
+      } else {
+        setIndexQuestion(indexQuestion + 1)
+      }
+    }, 1 * 800)
+  }
+
+  useEffect(() => {
+    setClassNameButtonAnswer(null)
+  }, [indexQuestion])
+
+  const handlEanswer = (indexQueston, alternative) => {
+    const indexAnswer = db.questions[indexQuestion].answer
+
+    setNameAlternative(alternative)
+
+    if (indexAnswer === indexQueston) {
+      setColorButtonAnswer('green')
     } else {
-      setIndexQuestion(indexQuestion + 1)
+      setColorButtonAnswer('red')
     }
   }
 
   return (
     <S.Container>
-      {console.log(db)}
+      {console.log(nameAlternative)}
       <HeaderWidget
         header={header}
         label={`<  Pergunta 1 de 5`}
@@ -39,9 +62,29 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
             <h2>{db.questions[indexQuestion].title}</h2>
             <p>{db.questions[indexQuestion].description}</p>
           </>
-          {db.questions[indexQuestion].alternatives.map((alternative) => (
-            <InputQuestions key={alternative} value={alternative} />
-          ))}
+          {db.questions[indexQuestion].alternatives.map(
+            (alternative, index) => (
+              <>
+                {classNameButtonAnswer ? (
+                  <InputQuestions
+                    borderColor={
+                      nameAlternative === alternative && classNameButtonAnswer
+                    }
+                    key={alternative}
+                    value={alternative}
+                    handlEanswer={() => handlEanswer(index + 1, alternative)}
+                  />
+                ) : (
+                  <InputQuestions
+                    borderColor="none"
+                    key={alternative}
+                    value={alternative}
+                    handlEanswer={() => handlEanswer(index + 1, alternative)}
+                  />
+                )}
+              </>
+            )
+          )}
           <ButtonWidget value="CONFIRMAR" trueOrFalse={true} disabled="false" />
         </S.Content>
       </S.Form>

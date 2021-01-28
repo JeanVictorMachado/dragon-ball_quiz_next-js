@@ -42,4 +42,10 @@ export type QuestionsWidgetProps = {
 
 export type InputQuestionsProps = {
   value: string
+  onClick: any
+  borderColor: unknown
+  handlEanswer: {
+    indexQuestion: any
+    alternative: any
+  }
 }
