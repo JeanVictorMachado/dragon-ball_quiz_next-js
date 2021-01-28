@@ -18,7 +18,7 @@ export const Wrapper = styled.input<IWrapperProps>`
   font-size: 14px;
   color: white;
 
-  border: 2px solid ${(props) => props.borderColor};
+  background-color: ${(props) => props.borderColor};
 
   cursor: pointer;
   opacity: 1;
