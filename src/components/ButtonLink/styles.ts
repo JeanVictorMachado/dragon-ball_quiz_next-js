@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
-import themeOne from 'styles/Themes/themeOne'
-
 export const Wrapper = styled.input`
   width: 100%;
   height: 35px;
   margin-top: 5px;
   border: none;
   border-radius: 4px;
-  background-color: ${themeOne.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.secondary};
   box-shadow: 0 0 2px black;
   font-size: 14px;
   color: white;
@@ -21,3 +19,5 @@ export const Wrapper = styled.input`
     opacity: 0.7;
   }
 `
+
+export const WrapperLink = styled.a``

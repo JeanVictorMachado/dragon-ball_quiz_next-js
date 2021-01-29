@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
-import themeOne from 'styles/Themes/themeOne'
-
 export const ContainerMain = styled.main`
   width: 100%;
   height: 100vh;
   background-image: linear-gradient(
-    ${themeOne.colors.primary},
-    ${themeOne.colors.secondary},
-    ${themeOne.colors.tertiary}
+    ${({ theme }) => theme.colors.primary},
+    ${({ theme }) => theme.colors.secondary},
+    ${({ theme }) => theme.colors.tertiary}
   );
 
   padding-bottom: 30px;
@@ -21,11 +19,11 @@ export const ContainerMain = styled.main`
     background-image: linear-gradient(
         to bottom,
         transparent 0%,
-        ${themeOne.colors.secondary} 21%,
-        ${themeOne.colors.secondary} 55%,
-        ${themeOne.colors.tertiary} 80%
+        ${({ theme }) => theme.colors.secondary} 21%,
+        ${({ theme }) => theme.colors.secondary} 55%,
+        ${({ theme }) => theme.colors.tertiary} 80%
       ),
-      url(/img/dragon-ball-super-FB-test.jpg);
+      url(${({ theme }) => theme.bgImageMobile});
     background-size: 100%;
     flex-direction: column;
   }

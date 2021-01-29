@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import themeOne from '../../styles/Themes/themeOne'
-
 export const Container = styled.section`
   width: 400px;
   height: auto;
@@ -35,7 +33,7 @@ export const Content = styled.section`
   > h2 {
     margin-bottom: 10px;
     font-size: 24px;
-    color: ${themeOne.colors.playButton};
+    color: ${({ theme }) => theme.colors.playButton};
   }
 
   > p {

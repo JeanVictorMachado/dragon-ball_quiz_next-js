@@ -1,6 +1,8 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Provider from 'Context/Provider'
+import { ThemeProvider } from 'styled-components'
+import db from '../../db.json'
 
 import GlobalStyles from 'styles/global'
 
@@ -18,8 +20,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
             content="A simple project starter to work with TypeScript, React, NextJS and Syled Components"
           />
         </Head>
-        <GlobalStyles />
-        <Component {...pageProps} />
+        <ThemeProvider theme={db.theme}>
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </Provider>
     </>
   )

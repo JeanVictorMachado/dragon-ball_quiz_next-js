@@ -1,15 +1,13 @@
 import styled from 'styled-components'
 
-import themeOne from 'styles/Themes/themeOne'
-
 export const MainWrapper = styled.main`
   width: 100%;
   height: 100%;
 
   background-image: linear-gradient(
-    ${themeOne.colors.primary},
-    ${themeOne.colors.secondary},
-    ${themeOne.colors.tertiary}
+    ${({ theme }) => theme.colors.primary},
+    ${({ theme }) => theme.colors.secondary},
+    ${({ theme }) => theme.colors.tertiary}
   );
 
   @media (max-width: 1100px) {
@@ -17,9 +15,9 @@ export const MainWrapper = styled.main`
     background-image: linear-gradient(
         to bottom,
         transparent 0%,
-        ${themeOne.colors.secondary} 27%,
-        ${themeOne.colors.secondary} 55%,
-        ${themeOne.colors.tertiary} 90%
+        ${({ theme }) => theme.colors.secondary} 27%,
+        ${({ theme }) => theme.colors.secondary} 55%,
+        ${({ theme }) => theme.colors.tertiary} 90%
       ),
       url(/img/gif-1-dragon-ball.gif);
     background-repeat: repeat-x;
@@ -42,7 +40,7 @@ export const Wrapper = styled.section`
     font-family: 'Lato';
     font-size: 20px;
     letter-spacing: 12px;
-    color: ${themeOne.colors.textLoading};
+    color: ${({ theme }) => theme.colors.textLoading};
   }
 `
 
@@ -51,7 +49,7 @@ export const Circle = styled.div`
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background-color: ${themeOne.colors.loading};
+  background-color: ${({ theme }) => theme.colors.loading};
   left: 15%;
   transform-origin: 50%;
   animation: circle 0.5s alternate infinite ease;

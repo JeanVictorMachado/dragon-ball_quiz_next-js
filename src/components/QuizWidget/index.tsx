@@ -8,8 +8,10 @@ import InputWidget from 'components/InputWidget'
 import HeaderWidget from 'components/HeaderWidget'
 import ButtonWidget from 'components/ButtonWidget'
 import ButtonLink from 'components/ButtonLink'
+import db from '../../../db.json'
 
 import { WidgetProps } from 'types/types'
+import { link } from 'fs'
 
 const Widget = ({ header, input, trueOrFalse, buttonLink }: WidgetProps) => {
   const [stateForm, setStateForm] = useState('')
@@ -26,17 +28,10 @@ const Widget = ({ header, input, trueOrFalse, buttonLink }: WidgetProps) => {
 
   return (
     <S.Container>
-      <HeaderWidget
-        currentRoute=""
-        header={header}
-        label="Quiz - Dragon Ball Super"
-      />
+      <HeaderWidget currentRoute="" header={header} label={db.title} />
       <S.Content>
         {header ? (
-          <p>
-            Teste os seus conhecimentos sobre o universo Dragon Ball e
-            divirta-se criando o seu AluraQuiz!
-          </p>
+          <p>{db.description}</p>
         ) : (
           <>
             <h2>Quizes da galera</h2>
@@ -63,18 +58,21 @@ const Widget = ({ header, input, trueOrFalse, buttonLink }: WidgetProps) => {
             onClick={() => ''}
           />
         </S.Form>
-        <ButtonLink
-          buttonLink={buttonLink}
-          value="pedrinhodasilva/aluraquizjavascript"
-        />
-        <ButtonLink
-          buttonLink={buttonLink}
-          value="joaozinhofilisbino/aluraquizpokemon"
-        />
-        <ButtonLink
-          buttonLink={buttonLink}
-          value="luquinhasroberto/aluraquiznextjs"
-        />
+        {db.external.map((linkGuys, index) => {
+          const [projectName, gitHubName] = linkGuys
+            .replace(/\//g, '')
+            .replace('https:', '')
+            .replace('.vercel.app', '')
+            .split('.')
+          return (
+            <ButtonLink
+              href={linkGuys}
+              buttonLink={buttonLink}
+              value={`${gitHubName}/${projectName}`}
+              key={`${index}-${linkGuys}`}
+            />
+          )
+        })}
       </S.Content>
     </S.Container>
   )

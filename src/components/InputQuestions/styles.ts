@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import themeOne from 'styles/Themes/themeOne'
-
 type IWrapperProps = {
   borderColor: any
   onClick: any
@@ -13,7 +11,7 @@ export const Wrapper = styled.input<IWrapperProps>`
   margin-top: 10px;
   border: none;
   border-radius: 4px;
-  background-color: ${themeOne.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.secondary};
   box-shadow: 0 0 2px black;
   font-size: 14px;
   color: white;

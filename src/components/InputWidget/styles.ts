@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import themeOne from 'styles/Themes/themeOne'
-
 export const Wrapper = styled.input`
   width: 100%;
   height: 35px;
@@ -11,5 +9,5 @@ export const Wrapper = styled.input`
   padding: 10px;
   background-color: transparent;
   color: white;
-  border: 1px solid ${themeOne.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
 `

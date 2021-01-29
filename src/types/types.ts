@@ -1,6 +1,7 @@
 export type ButtonLinkProps = {
   buttonLink: boolean
-  value: string
+  value: any
+  href: string
 }
 
 export type ButtonWidgetProps = {
