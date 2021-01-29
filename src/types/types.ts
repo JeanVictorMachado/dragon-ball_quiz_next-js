@@ -27,6 +27,7 @@ export type WidgetProps = {
   input: boolean
   trueOrFalse: boolean
   buttonLink: boolean
+  dbExterno: any
 }
 
 export type UrlImageProps = {

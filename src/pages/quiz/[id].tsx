@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ContextAPI from '../../Context/ContextAPI'
 
-export default function QuizDaGaleraPage() {
-  return <div>Desafio da próxima aula junto com as animações</div>
+import QuizWidget from '../../components/QuizWidget'
+
+export default function QuizDaGaleraPage({ dbExterno }: any) {
+  const { setGlobalDbExterno, globalDbExterno } = useContext(ContextAPI)
+
+  setGlobalDbExterno(dbExterno)
+
+  // console.log(globalDbExterno)
+
+  return (
+    <>
+      <QuizWidget
+        input={false}
+        dbExterno={dbExterno}
+        header={false}
+        trueOrFalse={false}
+        buttonLink={false}
+      />
+      {/* <pre>{JSON.stringify(dbExterno, null, 4)}</pre> */}
+    </>
+  )
 }
 
 export async function getServerSideProps(context: any) {
-  // console.log('infos next', context.query.id)
-
   const dbExterno = await fetch(
     'https://quiz-dragon-ball-immersion-alura-next-js.vercel.app/api/db'
   )
@@ -23,9 +41,9 @@ export async function getServerSideProps(context: any) {
       console.error(error)
     })
 
-  console.log(dbExterno)
+  // console.log(dbExterno)
 
   return {
-    props: {}
+    props: { dbExterno }
   }
 }

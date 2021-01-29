@@ -11,12 +11,20 @@ import ButtonLink from 'components/ButtonLink'
 import db from '../../../db.json'
 
 import { WidgetProps } from 'types/types'
-import { link } from 'fs'
 
-const Widget = ({ header, input, trueOrFalse, buttonLink }: WidgetProps) => {
+const Widget = ({
+  header,
+  input,
+  trueOrFalse,
+  buttonLink,
+  dbExterno
+}: WidgetProps) => {
   const [stateForm, setStateForm] = useState('')
-  const { setGlobalUserName } = useContext(ContextAPI)
+  const { setGlobalUserName, globalDbExterno } = useContext(ContextAPI)
   const router = useRouter()
+
+  console.log(dbExterno)
+  // console.log(globalDbExterno)
 
   const handleSubmit = (eventReload: React.FormEvent<HTMLFormElement>) => {
     eventReload.preventDefault()
