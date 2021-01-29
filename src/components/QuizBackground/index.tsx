@@ -19,7 +19,7 @@ const QuizBackground = () => {
 
     setRoute(pathname)
 
-    if (pathname === '/quiz') {
+    if (pathname === '/quiz' || pathname === '/') {
       setIsLoading(true)
 
       setTimeout(() => {

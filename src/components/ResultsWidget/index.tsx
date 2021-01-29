@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Router from 'next/router'
 
 import ContextAPI from '../../Context/ContextAPI'
@@ -9,6 +9,8 @@ import * as S from './styles'
 
 const ResultsWidget = () => {
   const { globalAnswerCorrect, globalUserName } = useContext(ContextAPI)
+
+  const [isloading, setIsLoading] = useState(false)
 
   const handleGetOut = () => {
     Router.push('/')
