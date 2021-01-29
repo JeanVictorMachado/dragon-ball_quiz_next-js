@@ -11,6 +11,20 @@ export const MainWrapper = styled.main`
     ${themeOne.colors.secondary},
     ${themeOne.colors.tertiary}
   );
+
+  @media (max-width: 1100px) {
+    padding-top: 100px;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        ${themeOne.colors.secondary} 35%,
+        ${themeOne.colors.secondary} 45%,
+        ${themeOne.colors.tertiary} 90%
+      ),
+      url(/img/gif-1-dragon-ball.gif);
+    background-size: 100%;
+    flex-direction: column;
+  }
 `
 
 export const Wrapper = styled.section`
