@@ -43,11 +43,14 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
 
   useEffect(() => {
     setClassNameButtonAnswer(null)
+    setCurrentIndexQuestion(undefined)
     // setglobalAnswerCorrect(numberResponseCorrect)
   }, [indexQuestion])
 
   const handlEanswer = (indexQueston: number, alternative: string) => {
     const indexAnswer = db.questions[indexQuestion].answer
+
+    console.log(currentIndexQuestion)
 
     setCurrentIndexQuestion(indexQueston)
     setNameAlternative(alternative)
@@ -99,8 +102,8 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
           <ButtonWidget
             value="CONFIRMAR"
             trueOrFalse={true}
-            disabled="false"
-            onClick=""
+            disabled={currentIndexQuestion ? 'true' : ''}
+            onClick={() => ''}
           />
         </S.Content>
       </S.Form>

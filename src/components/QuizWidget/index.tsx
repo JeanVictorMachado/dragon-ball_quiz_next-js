@@ -60,7 +60,7 @@ const Widget = ({ header, input, trueOrFalse, buttonLink }: WidgetProps) => {
             }
             trueOrFalse={trueOrFalse}
             disabled={stateForm}
-            onClick=""
+            onClick={() => ''}
           />
         </S.Form>
         <ButtonLink

@@ -8,7 +8,7 @@ export const Wrapper = styled.input`
   margin-top: 10px;
   border: none;
   border-radius: 4px;
-  background-color: ${themeOne.colors.playButton};
+  background-color: ${themeOne.colors.loading};
   box-shadow: 0 0 2px black;
   font-size: 14px;
   font-weight: 800;

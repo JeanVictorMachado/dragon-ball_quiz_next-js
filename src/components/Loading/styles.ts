@@ -42,7 +42,7 @@ export const Wrapper = styled.section`
     font-family: 'Lato';
     font-size: 20px;
     letter-spacing: 12px;
-    color: ${themeOne.colors.playButton};
+    color: ${themeOne.colors.textLoading};
   }
 `
 
@@ -51,7 +51,7 @@ export const Circle = styled.div`
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background-color: ${themeOne.colors.tertiary};
+  background-color: ${themeOne.colors.loading};
   left: 15%;
   transform-origin: 50%;
   animation: circle 0.5s alternate infinite ease;
