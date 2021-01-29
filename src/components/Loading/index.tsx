@@ -2,7 +2,13 @@ import * as S from './styles'
 
 const Loading = () => (
   <S.Wrapper>
-    <S.TextLoading>Loading...</S.TextLoading>
+    <S.Circle></S.Circle>
+    <S.Circle></S.Circle>
+    <S.Circle></S.Circle>
+    <S.Shadow></S.Shadow>
+    <S.Shadow></S.Shadow>
+    <S.Shadow></S.Shadow>
+    <span>Carregando</span>
   </S.Wrapper>
 )
 

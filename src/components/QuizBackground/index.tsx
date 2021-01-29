@@ -24,7 +24,7 @@ const QuizBackground = () => {
 
       setTimeout(() => {
         setIsLoading(false)
-      }, 1 * 800)
+      }, 1 * 2000)
     }
   }, [stateRoute])
 
