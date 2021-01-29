@@ -17,7 +17,7 @@ export const MainWrapper = styled.main`
     background-image: linear-gradient(
         to bottom,
         transparent 0%,
-        ${themeOne.colors.secondary} 22%,
+        ${themeOne.colors.secondary} 27%,
         ${themeOne.colors.secondary} 55%,
         ${themeOne.colors.tertiary} 90%
       ),
