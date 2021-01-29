@@ -1,4 +1,17 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
+
+import themeOne from 'styles/Themes/themeOne'
+
+export const MainWrapper = styled.main`
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    ${themeOne.colors.primary},
+    ${themeOne.colors.secondary},
+    ${themeOne.colors.tertiary}
+  );
+`
 
 export const Wrapper = styled.section`
   width: 200px;
@@ -14,7 +27,7 @@ export const Wrapper = styled.section`
     font-family: 'Lato';
     font-size: 20px;
     letter-spacing: 12px;
-    color: black;
+    color: ${themeOne.colors.playButton};
   }
 `
 
@@ -23,7 +36,7 @@ export const Circle = styled.div`
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background-color: red;
+  background-color: ${themeOne.colors.tertiary};
   left: 15%;
   transform-origin: 50%;
   animation: circle 0.5s alternate infinite ease;
@@ -60,7 +73,7 @@ export const Shadow = styled.div`
   width: 20px;
   height: 4px;
   border-radius: 50%;
-  background-color: blue;
+  background-color: black;
   position: absolute;
   top: 62px;
   transform-origin: 50%;
