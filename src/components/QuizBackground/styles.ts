@@ -26,7 +26,7 @@ export const ContainerMain = styled.main`
         ${themeOne.colors.tertiary} 80%
       ),
       url(/img/dragon-ball-super-FB-test.jpg);
-    background-size: cover;
+    background-size: 100%;
     flex-direction: column;
   }
 `

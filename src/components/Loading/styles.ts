@@ -17,11 +17,12 @@ export const MainWrapper = styled.main`
     background-image: linear-gradient(
         to bottom,
         transparent 0%,
-        ${themeOne.colors.secondary} 35%,
-        ${themeOne.colors.secondary} 45%,
+        ${themeOne.colors.secondary} 22%,
+        ${themeOne.colors.secondary} 55%,
         ${themeOne.colors.tertiary} 90%
       ),
       url(/img/gif-1-dragon-ball.gif);
+    background-repeat: repeat-x;
     background-size: 100%;
     flex-direction: column;
   }
