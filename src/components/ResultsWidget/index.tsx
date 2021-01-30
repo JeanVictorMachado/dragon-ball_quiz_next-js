@@ -5,6 +5,8 @@ import ContextAPI from '../../Context/ContextAPI'
 
 import ButtonWidget from '../ButtonWidget'
 
+import { motion } from 'framer-motion'
+
 import * as S from './styles'
 
 const ResultsWidget = () => {
@@ -16,7 +18,13 @@ const ResultsWidget = () => {
 
   return (
     <>
-      <S.Container>
+      <S.Container
+        as={motion.section}
+        transition={{ duration: 1 }}
+        variants={{ show: { opacity: 1 }, hidden: { opacity: 0 } }}
+        initial="hidden"
+        animate="show"
+      >
         <S.Content>
           <h2>{globalUserName}</h2>
           <p>

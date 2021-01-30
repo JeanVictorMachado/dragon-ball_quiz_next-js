@@ -10,6 +10,8 @@ import InputQuestions from 'components/InputQuestions'
 import ButtonWidget from 'components/ButtonWidget'
 import db from '../../../db.json'
 
+import { motion } from 'framer-motion'
+
 import { QuestionsWidgetProps } from 'types/types'
 
 const QuestionsWidget = ({
@@ -96,7 +98,13 @@ const QuestionsWidget = ({
   }
 
   return (
-    <S.Container>
+    <S.Container
+      as={motion.section}
+      transition={{ duration: 1 }}
+      variants={{ show: { opacity: 1 }, hidden: { opacity: 0 } }}
+      initial="hidden"
+      animate="show"
+    >
       <HeaderWidget
         header={header}
         label={`<  Pergunta 1 de 5`}

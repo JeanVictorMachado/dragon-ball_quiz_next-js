@@ -10,6 +10,8 @@ import ButtonWidget from 'components/ButtonWidget'
 import ButtonLink from 'components/ButtonLink'
 import db from '../../../db.json'
 
+import { motion } from 'framer-motion'
+
 import { WidgetProps } from 'types/types'
 
 const Widget = ({
@@ -38,7 +40,13 @@ const Widget = ({
   console.log(router.query.id)
 
   return (
-    <S.Container>
+    <S.Container
+      as={motion.section}
+      transition={{ duration: 1 }}
+      variants={{ show: { opacity: 1 }, hidden: { opacity: 0 } }}
+      initial="hidden"
+      animate="show"
+    >
       <HeaderWidget
         currentRoute=""
         header={header}
