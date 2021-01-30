@@ -7,7 +7,7 @@ export const MainWrapper = styled.main`
   background-image: linear-gradient(
     ${({ theme }) => theme.colors.primary},
     ${({ theme }) => theme.colors.secondary},
-    ${({ theme }) => theme.colors.tertiary}
+    ${({ theme }) => theme.colors.mainBg}
   );
 
   @media (max-width: 1100px) {
@@ -17,7 +17,7 @@ export const MainWrapper = styled.main`
         transparent 0%,
         ${({ theme }) => theme.colors.secondary} 27%,
         ${({ theme }) => theme.colors.secondary} 55%,
-        ${({ theme }) => theme.colors.tertiary} 90%
+        ${({ theme }) => theme.colors.mainBg} 90%
       ),
       url(/img/gif-1-dragon-ball.gif);
     background-repeat: repeat-x;
@@ -49,7 +49,7 @@ export const Circle = styled.div`
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.loading};
+  background-color: ${({ theme }) => theme.colors.wrong};
   left: 15%;
   transform-origin: 50%;
   animation: circle 0.5s alternate infinite ease;

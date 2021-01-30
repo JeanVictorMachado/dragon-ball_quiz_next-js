@@ -33,7 +33,7 @@ export const Content = styled.section`
   > h2 {
     margin-bottom: 10px;
     font-size: 24px;
-    color: ${({ theme }) => theme.colors.playButton};
+    color: ${({ theme }) => theme.colors.contrastText};
   }
 
   > p {

@@ -12,7 +12,11 @@ import db from '../../../db.json'
 
 import { QuestionsWidgetProps } from 'types/types'
 
-const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
+const QuestionsWidget = ({
+  header,
+  currentRoute,
+  dbExterno
+}: QuestionsWidgetProps) => {
   const [indexQuestion, setIndexQuestion] = useState(0)
   const [colorButtonAnswer, setColorButtonAnswer] = useState('')
   const [classNameButtonAnswer, setClassNameButtonAnswer] = useState<unknown>()
@@ -26,19 +30,37 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
 
     setClassNameButtonAnswer(colorButtonAnswer)
 
-    const indexAnswer = db.questions[indexQuestion].answer
+    if (Router.query.id) {
+      const indexAnswerDbExterno = dbExterno.questions[indexQuestion].answer
 
-    if (indexAnswer === currentIndexQuestion) {
-      setglobalAnswerCorrect([...globalAnswerCorrect, true])
-    }
+      console.log(indexAnswerDbExterno, currentIndexQuestion)
 
-    setTimeout(() => {
-      if (indexQuestion >= db.questions.length - 1) {
-        Router.push('/results')
-      } else {
-        setIndexQuestion(indexQuestion + 1)
+      if (indexAnswerDbExterno + 1 === currentIndexQuestion) {
+        setglobalAnswerCorrect([...globalAnswerCorrect, true])
       }
-    }, 1 * 800)
+
+      setTimeout(() => {
+        if (indexQuestion >= dbExterno.questions.length - 1) {
+          Router.push(`/results/${Router.query.id}`)
+        } else {
+          setIndexQuestion(indexQuestion + 1)
+        }
+      }, 1 * 800)
+    } else {
+      const indexAnswer = db.questions[indexQuestion].answer
+
+      if (indexAnswer === currentIndexQuestion) {
+        setglobalAnswerCorrect([...globalAnswerCorrect, true])
+      }
+
+      setTimeout(() => {
+        if (indexQuestion >= db.questions.length - 1) {
+          Router.push('/results')
+        } else {
+          setIndexQuestion(indexQuestion + 1)
+        }
+      }, 1 * 800)
+    }
   }
 
   useEffect(() => {
@@ -48,17 +70,28 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
   }, [indexQuestion])
 
   const handlEanswer = (indexQueston: number, alternative: string) => {
-    const indexAnswer = db.questions[indexQuestion].answer
+    if (Router.query.id) {
+      const indexAnswerDbExterno = dbExterno.questions[indexQuestion].answer
 
-    console.log(currentIndexQuestion)
+      setCurrentIndexQuestion(indexQueston)
+      setNameAlternative(alternative)
 
-    setCurrentIndexQuestion(indexQueston)
-    setNameAlternative(alternative)
-
-    if (indexAnswer === indexQueston) {
-      setColorButtonAnswer('green')
+      if (indexAnswerDbExterno + 1 === indexQueston) {
+        setColorButtonAnswer('green')
+      } else {
+        setColorButtonAnswer('red')
+      }
     } else {
-      setColorButtonAnswer('red')
+      const indexAnswer = db.questions[indexQuestion].answer
+
+      setCurrentIndexQuestion(indexQueston)
+      setNameAlternative(alternative)
+
+      if (indexAnswer === indexQueston) {
+        setColorButtonAnswer('green')
+      } else {
+        setColorButtonAnswer('red')
+      }
     }
   }
 
@@ -70,35 +103,74 @@ const QuestionsWidget = ({ header, currentRoute }: QuestionsWidgetProps) => {
         currentRoute={currentRoute}
       />
       <S.Form onSubmit={(event) => handleSubmit(event)}>
-        <ImgQuestions urlImage={String(db.questions[indexQuestion].image)} />
+        {Router.query.id ? (
+          <ImgQuestions
+            urlImage={String(dbExterno.questions[indexQuestion].image)}
+          />
+        ) : (
+          <ImgQuestions urlImage={String(db.questions[indexQuestion].image)} />
+        )}
         <S.Content>
           <>
-            <h2>{db.questions[indexQuestion].title}</h2>
-            <p>{db.questions[indexQuestion].description}</p>
+            {Router.query.id ? (
+              <>
+                <h2>{dbExterno.questions[indexQuestion].title}</h2>
+                <p>{dbExterno.questions[indexQuestion].description}</p>
+              </>
+            ) : (
+              <>
+                <h2>{db.questions[indexQuestion].title}</h2>
+                <p>{db.questions[indexQuestion].description}</p>
+              </>
+            )}
           </>
-          {db.questions[indexQuestion].alternatives.map(
-            (alternative, index) => (
-              <div key={index}>
-                {classNameButtonAnswer ? (
-                  <InputQuestions
-                    borderColor={
-                      nameAlternative === alternative && classNameButtonAnswer
-                    }
-                    key={alternative}
-                    value={alternative}
-                    handlEanswer={() => handlEanswer(index + 1, alternative)}
-                  />
-                ) : (
-                  <InputQuestions
-                    borderColor="none"
-                    key={alternative}
-                    value={alternative}
-                    handlEanswer={() => handlEanswer(index + 1, alternative)}
-                  />
-                )}
-              </div>
-            )
-          )}
+          {Router.query.id
+            ? dbExterno.questions[
+                indexQuestion
+              ].alternatives.map((alternative: string, index: number) => (
+                <div key={index}>
+                  {classNameButtonAnswer ? (
+                    <InputQuestions
+                      borderColor={
+                        nameAlternative === alternative && classNameButtonAnswer
+                      }
+                      key={alternative}
+                      value={alternative}
+                      handlEanswer={() => handlEanswer(index + 1, alternative)}
+                    />
+                  ) : (
+                    <InputQuestions
+                      borderColor="none"
+                      key={alternative}
+                      value={alternative}
+                      handlEanswer={() => handlEanswer(index + 1, alternative)}
+                    />
+                  )}
+                </div>
+              ))
+            : db.questions[
+                indexQuestion
+              ].alternatives.map((alternative, index) => (
+                <div key={index}>
+                  {classNameButtonAnswer ? (
+                    <InputQuestions
+                      borderColor={
+                        nameAlternative === alternative && classNameButtonAnswer
+                      }
+                      key={alternative}
+                      value={alternative}
+                      handlEanswer={() => handlEanswer(index + 1, alternative)}
+                    />
+                  ) : (
+                    <InputQuestions
+                      borderColor="none"
+                      key={alternative}
+                      value={alternative}
+                      handlEanswer={() => handlEanswer(index + 1, alternative)}
+                    />
+                  )}
+                </div>
+              ))}
           <ButtonWidget
             value="CONFIRMAR"
             trueOrFalse={true}

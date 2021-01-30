@@ -20,26 +20,33 @@ const Widget = ({
   dbExterno
 }: WidgetProps) => {
   const [stateForm, setStateForm] = useState('')
-  const { setGlobalUserName, globalDbExterno } = useContext(ContextAPI)
+  const { setGlobalUserName } = useContext(ContextAPI)
   const router = useRouter()
-
-  console.log(dbExterno)
-  // console.log(globalDbExterno)
 
   const handleSubmit = (eventReload: React.FormEvent<HTMLFormElement>) => {
     eventReload.preventDefault()
 
     setGlobalUserName(stateForm)
 
-    router.push(`/quiz?name=${stateForm}`)
+    if (!router.query.id) {
+      router.push(`/quiz?name=${stateForm}`)
+    } else {
+      router.push(`/quiz/${router.query.id}`)
+    }
   }
+
+  console.log(router.query.id)
 
   return (
     <S.Container>
-      <HeaderWidget currentRoute="" header={header} label={db.title} />
+      <HeaderWidget
+        currentRoute=""
+        header={header}
+        label={!router.query.id ? db.title : dbExterno.title}
+      />
       <S.Content>
         {header ? (
-          <p>{db.description}</p>
+          <p>{!router.query.id ? db.description : dbExterno.title}</p>
         ) : (
           <>
             <h2>Quizes da galera</h2>
@@ -66,21 +73,37 @@ const Widget = ({
             onClick={() => ''}
           />
         </S.Form>
-        {db.external.map((linkGuys, index) => {
-          const [projectName, gitHubName] = linkGuys
-            .replace(/\//g, '')
-            .replace('https:', '')
-            .replace('.vercel.app', '')
-            .split('.')
-          return (
-            <ButtonLink
-              href={linkGuys}
-              buttonLink={buttonLink}
-              value={`${gitHubName}/${projectName}`}
-              key={`${index}-${linkGuys}`}
-            />
-          )
-        })}
+        {!router.query.id
+          ? db.external.map((linkGuys, index) => {
+              const [projectName, gitHubName] = linkGuys
+                .replace(/\//g, '')
+                .replace('https:', '')
+                .replace('.vercel.app', '')
+                .split('.')
+              return (
+                <ButtonLink
+                  href={`/home/${gitHubName}___${projectName}`}
+                  buttonLink={buttonLink}
+                  value={`${gitHubName}/${projectName}`}
+                  key={`${index}-${linkGuys}`}
+                />
+              )
+            })
+          : dbExterno.external.map((linkGuys: string, index: number) => {
+              const [projectName, gitHubName] = linkGuys
+                .replace(/\//g, '')
+                .replace('https:', '')
+                .replace('.vercel.app', '')
+                .split('.')
+              return (
+                <ButtonLink
+                  href={`/home/${gitHubName}___${projectName}`}
+                  buttonLink={buttonLink}
+                  value={`${gitHubName}/${projectName}`}
+                  key={`${index}-${linkGuys}`}
+                />
+              )
+            })}
       </S.Content>
     </S.Container>
   )

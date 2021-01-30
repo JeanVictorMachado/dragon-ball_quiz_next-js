@@ -41,6 +41,7 @@ export type WrapperHeader = {
 export type QuestionsWidgetProps = {
   header: boolean
   currentRoute: string
+  dbExterno: any
 }
 
 export type InputQuestionsProps = {

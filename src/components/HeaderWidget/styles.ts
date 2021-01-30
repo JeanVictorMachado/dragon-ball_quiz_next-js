@@ -7,7 +7,7 @@ export const Wrapper = styled.header<WrapperHeader>`
   width: 100%;
   border-radius: 10px 10px 0 0;
   margin-bottom: ${(props) => (props.currentRoute ? '0' : '20px')};
-  background-color: ${({ theme }) => theme.colors.tertiary};
+  background-color: ${({ theme }) => theme.colors.mainBg};
   font-size: 20px;
   color: white;
 

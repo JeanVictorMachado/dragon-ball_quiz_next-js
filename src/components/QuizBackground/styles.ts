@@ -6,7 +6,7 @@ export const ContainerMain = styled.main`
   background-image: linear-gradient(
     ${({ theme }) => theme.colors.primary},
     ${({ theme }) => theme.colors.secondary},
-    ${({ theme }) => theme.colors.tertiary}
+    ${({ theme }) => theme.colors.mainBg}
   );
 
   padding-bottom: 30px;
@@ -21,7 +21,7 @@ export const ContainerMain = styled.main`
         transparent 0%,
         ${({ theme }) => theme.colors.secondary} 21%,
         ${({ theme }) => theme.colors.secondary} 55%,
-        ${({ theme }) => theme.colors.tertiary} 80%
+        ${({ theme }) => theme.colors.mainBg} 80%
       ),
       url(${({ theme }) => theme.bgImageMobile});
     background-size: 100%;

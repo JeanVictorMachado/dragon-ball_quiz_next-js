@@ -6,7 +6,7 @@ export const Wrapper = styled.input`
   margin-top: 10px;
   border: none;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.loading};
+  background-color: ${({ theme }) => theme.colors.contrastText};
   box-shadow: 0 0 2px black;
   font-size: 14px;
   font-weight: 800;

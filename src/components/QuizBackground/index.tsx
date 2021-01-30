@@ -10,7 +10,7 @@ import QuestionsWidget from 'components/QuestionsWidget'
 import Loading from 'components/Loading'
 import ResultsWidget from 'components/ResultsWidget'
 
-const QuizBackground = () => {
+const QuizBackground = ({ dbExterno }: any) => {
   const [stateRoute, setRoute] = useState<string>()
   const [stateIsLoading, setIsLoading] = useState<boolean>(false)
 
@@ -19,7 +19,12 @@ const QuizBackground = () => {
 
     setRoute(pathname)
 
-    if (pathname === '/quiz' || pathname === '/') {
+    if (
+      pathname === '/quiz' ||
+      pathname === '/' ||
+      pathname === '/home/[id]' ||
+      pathname === '/quiz/[id]'
+    ) {
       setIsLoading(true)
 
       setTimeout(() => {
@@ -29,20 +34,28 @@ const QuizBackground = () => {
   }, [stateRoute])
 
   const currentWidget = useMemo(() => {
-    if (stateRoute === '/quiz') {
-      return <QuestionsWidget header={true} currentRoute={stateRoute} />
-    } else if (stateRoute === '/results') {
+    if (stateRoute === '/quiz' || stateRoute === '/quiz/[id]') {
+      return (
+        <QuestionsWidget
+          header={true}
+          currentRoute={stateRoute}
+          dbExterno={dbExterno}
+        />
+      )
+    } else if (stateRoute === '/results' || stateRoute === '/results/[id]') {
       return <ResultsWidget />
     } else {
       return (
         <>
           <Widget
+            dbExterno={dbExterno}
             header={true}
             input={true}
             trueOrFalse={true}
             buttonLink={false}
           />
           <Widget
+            dbExterno={dbExterno}
             header={false}
             input={false}
             trueOrFalse={false}
@@ -62,6 +75,7 @@ const QuizBackground = () => {
         <S.ContainerMain>
           <S.ConatinerLeft>
             <Logo />
+            {console.log(dbExterno)}
             {currentWidget}
             <Footer />
           </S.ConatinerLeft>

@@ -41,9 +41,9 @@
     }
   ],
   "external": [
+    "https://curso-alura-imersao-react2.gpd38.vercel.app/",
     "https://aluraquiz-css.omariosouto.vercel.app/",
-    "https://aluraquiz-css.omariosouto.vercel.app/",
-    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+    "https://batquiz-imersao-next-alura.martinsgabriel1956.vercel.app/"
   ],
   "theme": {
     "colors": {
@@ -53,10 +53,11 @@
       "loading": "#EE9A00",
       "textLoading": "#CFCFCF",
       "playButton": "#ffd700",
-      "contrastText": "#FFFFFF",
-      "wrong": "#FF5722",
+      "contrastText": "#EE9A00",
+      "wrong": "#EE9A00",
       "success": "#4CAF50",
-      "disabled": "#6C7B8B"
+      "disabled": "#6C7B8B",
+      "mainBg": "#CD0000"
     },
     "bgImageMobile": "/img/dragon-ball-super-FB-test.jpg",
     "borderRadius": "4px"

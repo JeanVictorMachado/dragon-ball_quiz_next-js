@@ -5,8 +5,6 @@ type ContextProps = {
   globalUserName: string
   setglobalAnswerCorrect: any
   setGlobalUserName: any
-  globalDbExterno: any
-  setGlobalDbExterno: any
 }
 
 const ContextAPI = createContext<ContextProps>({} as ContextProps)
